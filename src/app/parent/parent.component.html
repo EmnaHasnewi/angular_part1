@@ -1,0 +1,11 @@
+<h1>Parent Component background</h1>
+<div [ngStyle]="{'background-color': parentBackgroundColor}" style="padding: 20px; border: 1px solid black;">
+  <h1>Composant Parent</h1>
+  <p>Couleur actuelle : {{ parentBackgroundColor }}</p>
+  <app-child 
+    [backgroundColor]="parentBackgroundColor" 
+    (changeBackgroundColor)="updateBackgroundColor($event)">
+  </app-child>
+</div>
+
+ 

@@ -1,0 +1,10 @@
+<h1>Changer la couleur du div</h1>
+
+<div class="container">
+<div [style.backgroundColor]="divColor" style="width: 200px; height: 100px; border: 1px solid black;">
+</div>
+<br />
+<input #colorInput type="text" placeholder="Entrez une couleur" />
+<button (click)="changeColor(colorInput.value)">Changer la couleur</button>
+<button (click)="resetColor()">Réinitialiser</button>
+</div>

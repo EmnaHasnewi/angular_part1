@@ -1,0 +1,129 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<h1>aperçu de carte visite</h1>
+<div class="container2">
+    
+    <div class="form-section">
+        <h2>Saisir les données</h2>
+      
+        <div class="form-row">
+          <!-- Nom et Prénom sur la même ligne -->
+          <div class="form-group">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" [(ngModel)]="cardData.nom" placeholder="Entrez le nom" class="input-field" />
+          </div>
+      
+          <div class="form-group">
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" [(ngModel)]="cardData.prenom" placeholder="Entrez le prénom" class="input-field" />
+          </div>
+        </div>
+      
+        <div class="form-row">
+          <!-- Job et Citation sur la même ligne -->
+          <div class="form-group">
+            <label for="job">Job :</label>
+            <input type="text" id="job" [(ngModel)]="cardData.job" placeholder="Entrez le poste" class="input-field" />
+          </div>
+      
+          <div class="form-group">
+            <label for="citation">Citation :</label>
+            <textarea id="citation" [(ngModel)]="cardData.citation" placeholder="Entrez une citation" class="textarea-field"></textarea>
+          </div>
+        </div>
+      
+        <div class="form-row">
+          <!-- Image et Description sur la même ligne -->
+          <div class="form-group">
+            <label for="image">Image :</label>
+            <input type="text" id="image" [(ngModel)]="cardData.image" placeholder="Entrez le chemin de l'image" class="input-field" />
+          </div>
+      
+          <div class="form-group">
+            <label for="description">Décrivez-nous votre travail :</label>
+            <textarea id="description" [(ngModel)]="cardData.description" placeholder="Décrivez votre travail" class="textarea-field"></textarea>
+          </div>
+        </div>
+      
+        <div class="form-row">
+          <!-- Mots-clés sur la même ligne -->
+          <div class="form-group">
+            <label for="keywords">Mots-clés de votre travail :</label>
+            <input type="text" id="keywords" [(ngModel)]="cardData.keywords" placeholder="Entrez les mots-clés" class="input-field" />
+          </div>
+        </div>
+      </div>
+      
+      
+        <div class="card-container">
+          <div class="card">
+            <!-- Front Side -->
+            <div class="front">
+              <div class="cover">
+                <img [src]="cardData.coverImage" alt="Card cover" />
+              </div>
+              <div class="user">
+                <img class="img-circle" [src]="cardData.image | defaultImage:'assets/default_image.png'" alt="Profile" />
+              </div>
+              <div class="content">
+                <div class="main">
+                  <h3 class="name">{{ cardData.prenom }} {{ cardData.nom }}</h3>
+                  <p class="profession">{{ cardData.job }}</p>
+                  <p class="text-center">"{{ cardData.citation }}"</p>
+                </div>
+                <div class="footer">
+                  <div class="rating">
+                    <i class="fa fa-mail-forward"></i> Auto Rotation
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Back Side -->
+            <div class="back">
+              <div class="header">
+                <h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
+              </div>
+              <div class="content">
+                <div class="main">
+                  <h4 class="text-center">Job Description</h4>
+                  <p class="text-center">
+                    {{ cardData.description }}
+                  </p>
+                    <div class="text-center">
+                        <span class="keywords" *ngFor="let keyword of cardData.keywords.split(' ')">{{
+                        cardData.keywords
+                        }}</span>
+                  <div class="stats-container">
+                    <div class="stats">
+                      <h4>{{ cardData.stats.followers }}</h4>
+                      <p>Followers</p>
+                    </div>
+                    <div class="stats">
+                      <h4>{{ cardData.stats.following }}</h4>
+                      <p>Following</p>
+                    </div>
+                    <div class="stats">
+                      <h4>{{ cardData.stats.projects }}</h4>
+                      <p>Projects</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="footer">
+                <div class="social-links text-center">
+                  <a [href]="cardData.socialLinks.facebook" class="facebook"
+                    ><i class="fa fa-facebook fa-fw"></i
+                  ></a>
+                  <a [href]="cardData.socialLinks.google" class="google"
+                    ><i class="fa fa-google-plus fa-fw"></i
+                  ></a>
+                  <a [href]="cardData.socialLinks.twitter" class="twitter"
+                    ><i class="fa fa-twitter fa-fw"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      

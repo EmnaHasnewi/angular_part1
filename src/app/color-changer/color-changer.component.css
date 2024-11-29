@@ -1,0 +1,6 @@
+.container {
+    display: flex; /* Utilise Flexbox pour aligner les éléments en ligne */
+    align-items: center; /* Aligne verticalement les éléments */
+    gap: 10px; /* Ajoute un espace entre les éléments */
+    margin-bottom: 30px;
+  }
